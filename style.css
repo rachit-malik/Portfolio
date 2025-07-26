@@ -2011,4 +2011,41 @@ body {
         width: 40px;
         height: 40px;
     }
+}/* ==== QUICK FIXES FOR OVERLAP ISSUES – 26 Jul 2025 ==== */
+
+/* 1. Give the main page more breathing room so the player bar never hides content */
+.main-content,
+.content-section {            /* works for every section inside main-content   */
+  /* 120 px = 40 px safe zone + 80 px player height */
+  padding-bottom: 120px !important;
+  min-height: calc(100vh - 40px);   /* small bump so pages feel longer          */
+}
+
+/* 2. Stop the hero/header text from sitting under the sidebar-toggle button    */
+.hero-section,
+.welcome-section,
+.main-content {
+  padding-top: 90px;          /* pushes content down ~ +20 px                   */
+}
+
+/* 3. Make sure the sidebar toggle stays high-left and OUT of the text flow     */
+.sidebar-toggle {
+  position: fixed;
+  top: 24px;
+  left: 16px;
+  z-index: 1200;              /* above everything except modals/overlay        */
+}
+
+/* 4. Only on DESKTOP—push the page right to match sidebar width (40 → 250 px) */
+@media (min-width: 769px) {
+  .main-content        { margin-left: 40px;  transition: margin-left .3s; }
+  .sidebar:hover ~ .main-content,
+  .sidebar.mobile-open ~ .main-content {
+    margin-left: 250px;                                      /* match expand */
+  }
+}
+
+/* 5. Only on MOBILE—sidebar slides over content; we DON’T push the page       */
+@media (max-width: 768px) {
+  .main-content { margin-left: 0; }  /* reset */
 }
