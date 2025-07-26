@@ -88,7 +88,7 @@ function initializeAutoHidingSidebar() {
                 sidebar.style.width = '40px';
                 mainContent.style.marginLeft = '40px';
                 console.log('Sidebar collapsed');
-            }, 2500); // 2.5 second delay
+            }, 200); // 0.5 second delay
         }
     });
     
