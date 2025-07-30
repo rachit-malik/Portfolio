@@ -2049,3 +2049,110 @@ body {
 @media (max-width: 768px) {
   .main-content { margin-left: 0; }  /* reset */
 }
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  position: fixed;
+  top: 28px;
+  right: 28px;
+  z-index: 1200;
+  background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
+  border: none;
+  color: #191414;
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 12px rgba(29,185,84,0.16);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(29,185,84,0.3);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+/* Light Mode Styles */
+[data-color-scheme="light"] {
+  --primary-bg: #ffffff;
+  --secondary-bg: #f8f9fa;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --accent-color: #1DB954;
+  --border-color: rgba(0,0,0,0.1);
+  --card-bg: rgba(255,255,255,0.9);
+  --shadow-color: rgba(0,0,0,0.1);
+}
+
+[data-color-scheme="light"] body {
+  background: linear-gradient(135deg, #f0f2f5 0%, #ffffff 100%);
+  color: var(--text-primary);
+}
+
+[data-color-scheme="light"] .sidebar {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  border-right: 1px solid var(--border-color);
+}
+
+[data-color-scheme="light"] .main-content {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f2f5 100%);
+}
+
+[data-color-scheme="light"] .nav-link {
+  color: var(--text-secondary);
+}
+
+[data-color-scheme="light"] .nav-link:hover,
+[data-color-scheme="light"] .nav-link.active {
+  color: var(--accent-color);
+  background: rgba(29, 185, 84, 0.1);
+}
+
+[data-color-scheme="light"] .section-title,
+[data-color-scheme="light"] .hero-title,
+[data-color-scheme="light"] h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+[data-color-scheme="light"] .welcome-text,
+[data-color-scheme="light"] p {
+  color: var(--text-secondary);
+}
+
+[data-color-scheme="light"] .about-card,
+[data-color-scheme="light"] .language-item,
+[data-color-scheme="light"] .experience-details,
+[data-color-scheme="light"] .project-item,
+[data-color-scheme="light"] .cert-item,
+[data-color-scheme="light"] .skills-category,
+[data-color-scheme="light"] .hobby-item,
+[data-color-scheme="light"] .contact-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px var(--shadow-color);
+  color: var(--text-primary);
+}
+
+[data-color-scheme="light"] .player-bar {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  border-top: 1px solid var(--border-color);
+}
+
+[data-color-scheme="light"] .profile-name,
+[data-color-scheme="light"] .profile-title {
+  color: var(--text-primary);
+}
+
+[data-color-scheme="light"] .theme-toggle-btn {
+  background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
+  color: #000000;
+}
+
