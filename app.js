@@ -851,3 +851,47 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
+// Enhanced Dark/Light Mode Toggle Functionality (Add at the end of app.js)
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('themeToggle');
+  const htmlRoot = document.documentElement;
+
+  // Load saved theme or default to dark
+  const savedScheme = localStorage.getItem('color-scheme') || 'dark';
+  htmlRoot.setAttribute('data-color-scheme', savedScheme);
+  setThemeIcon(savedScheme);
+
+  // Toggle theme on button click
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      const current = htmlRoot.getAttribute('data-color-scheme');
+      const next = current === 'light' ? 'dark' : 'light';
+      
+      htmlRoot.setAttribute('data-color-scheme', next);
+      localStorage.setItem('color-scheme', next);
+      setThemeIcon(next);
+      
+      console.log(`Theme switched to: ${next}`);
+      
+      // Add click feedback
+      this.style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
+    });
+  }
+
+  // Update icon based on theme
+  function setThemeIcon(mode) {
+    const icon = themeToggle?.querySelector('i');
+    if (!icon) return;
+    
+    if (mode === 'light') {
+      icon.className = 'fas fa-sun';
+      console.log('Theme icon set to sun (light mode)');
+    } else {
+      icon.className = 'fas fa-moon';
+      console.log('Theme icon set to moon (dark mode)');
+    }
+  }
+});
